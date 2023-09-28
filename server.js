@@ -353,6 +353,8 @@ app.use('/b2b/v2', insecurity.isAuthorized())
 /* Check if the quantity is available in stock and limit per user not exceeded, then add item to basket */
 app.put('/api/BasketItems/:id', insecurity.appendUserId(), basketItems.quantityCheckBeforeBasketItemUpdate())
 app.post('/api/BasketItems', insecurity.appendUserId(), basketItems.quantityCheckBeforeBasketItemAddition(), basketItems.addBasketItem())
+app.delete('/api/BasketItems/:id', insecurity.appendUserId(), basketItems.deleteBasketItem())
+
 /* Accounting users are allowed to check and update quantities */
 app.delete('/api/Quantitys/:id', insecurity.denyAll())
 app.post('/api/Quantitys', insecurity.denyAll())

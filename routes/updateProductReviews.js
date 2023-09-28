@@ -25,3 +25,16 @@ module.exports = function productReviews () {
       })
   }
 }
+
+// create and export a function to delete reviews
+module.exports.deleteReviews = function deleteReviews () {
+  return (req, res, next) => {
+    const id = req.params.id
+    db.reviews.remove({ _id: id })
+      .then(() => {
+        res.status(200).json({ status: 'success', data: 'Review deleted!' })
+      }).catch(error => {
+        next(error)
+      })
+  }
+}
