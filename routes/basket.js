@@ -31,14 +31,3 @@ module.exports = function retrieveBasket () {
 }
 
 // create and export a function to delete a basket
-module.exports.deleteBasket = function deleteBasket () {
-  return (req, res, next) => {
-    const id = req.params.id
-    models.Basket.destroy({ where: { id } })
-      .then(() => {
-        res.status(200).json({ status: 'success', data: 'Basket deleted!' })
-      }).catch(error => {
-        next(error)
-      })
-  }
-}
