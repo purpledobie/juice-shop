@@ -29,3 +29,5 @@ module.exports = function retrieveBasket () {
       })
   }
 }
+
+// create and export a function to delete a basket
