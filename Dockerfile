@@ -1,4 +1,4 @@
-FROM purpledobie/node-base:1.18
+FROM purpledobie/node-base:1.22
 
 ARG BUILD_DATE
 ARG VCS_REF
